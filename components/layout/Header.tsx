@@ -85,8 +85,8 @@ export function Header() {
       <div className="container flex h-[var(--header-h)] items-center justify-between gap-6">
         <Logo />
 
-        <nav ref={navRef} aria-label="Main" className="hidden h-full xl:block" onMouseLeave={scheduleClose} onMouseEnter={cancelClose}>
-          <ul className="flex h-full items-center gap-1 2xl:gap-2">
+        <nav ref={navRef} aria-label="Main" className="hidden h-full nav:block" onMouseLeave={scheduleClose} onMouseEnter={cancelClose}>
+          <ul className="flex h-full items-center gap-0 xl:gap-1 2xl:gap-2">
             {mainNav.map((item) => (
               <DesktopItem
                 key={item.href}
@@ -110,7 +110,7 @@ export function Header() {
           </ButtonLink>
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-[10px] text-navy transition-colors hover:bg-surface xl:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-[10px] text-navy transition-colors hover:bg-surface nav:hidden"
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -146,7 +146,7 @@ function DesktopItem({
   onClose: () => void;
 }) {
   const linkClass = cn(
-    "relative inline-flex h-full items-center gap-1 px-3 font-display text-[0.9375rem] font-semibold transition-colors 2xl:px-3.5 2xl:text-base",
+    "relative inline-flex h-full items-center gap-1 px-2.5 xl:px-3 font-display text-[0.9375rem] font-semibold transition-colors 2xl:px-3.5 2xl:text-base",
     active || open ? "text-navy" : "text-ink-muted hover:text-navy",
   );
   const indicator = (

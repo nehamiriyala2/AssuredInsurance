@@ -20,6 +20,21 @@ const config: Config = {
   // The container is defined in styles/globals.css (fluid gutters + wide max-width).
   corePlugins: { container: false },
   theme: {
+    /*
+     * Breakpoints, declared as one ordered list (Tailwind emits media queries in this
+     * order, so a later, wider breakpoint always wins over a narrower one).
+     * `nav` is the width at which the full desktop navigation fits — logo, six links
+     * and the consultation button — so the header switches from the hamburger there.
+     * Keep it in sync with the `--header-h` media query in styles/globals.css.
+     */
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      nav: "1200px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     colors: {
       transparent: "transparent",
       current: "currentColor",
@@ -42,7 +57,6 @@ const config: Config = {
       borderColor: { DEFAULT: token("border") },
       ringColor: { DEFAULT: token("brand-green") },
       ringOffsetColor: { DEFAULT: token("background") },
-      screens: { "3xl": "1680px" },
       fontFamily: {
         sans: ["var(--font-body)", "system-ui", "sans-serif"],
         display: ["var(--font-display)", "var(--font-body)", "system-ui", "sans-serif"],

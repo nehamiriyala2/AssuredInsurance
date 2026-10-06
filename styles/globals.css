@@ -36,7 +36,8 @@
   --container-max: 1536px; /* ≈1408px of content on large screens */
 }
 
-@media (min-width: 1280px) {
+/* Desktop header height — same breakpoint as the `nav` screen in tailwind.config.ts */
+@media (min-width: 1200px) {
   :root {
     --header-h: 76px;
   }

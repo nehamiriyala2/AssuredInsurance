@@ -27,7 +27,7 @@ export function MobileMenu({ open, onClose, pathname }: { open: boolean; onClose
     <div
       id="mobile-menu"
       className={cn(
-        "fixed inset-x-0 bottom-0 top-[var(--header-h)] z-40 overflow-y-auto overscroll-contain border-t border-line bg-white transition-[opacity,transform,visibility] duration-300 ease-premium xl:hidden",
+        "fixed inset-x-0 bottom-0 top-[var(--header-h)] z-40 overflow-y-auto overscroll-contain border-t border-line bg-white transition-[opacity,transform,visibility] duration-300 ease-premium nav:hidden",
         open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0",
       )}
       aria-hidden={!open}
