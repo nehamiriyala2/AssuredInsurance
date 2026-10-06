@@ -82,7 +82,7 @@ export function Header() {
         Skip to content
       </a>
 
-      <div className="container flex h-[var(--header-h)] items-center justify-between gap-6">
+      <div className="container flex h-[var(--header-h)] items-center justify-between gap-6 nav:max-xl:gap-4 nav:max-xl:px-6">
         <Logo />
 
         <nav ref={navRef} aria-label="Main" className="hidden h-full nav:block" onMouseLeave={scheduleClose} onMouseEnter={cancelClose}>
@@ -105,7 +105,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <ButtonLink href="/contact" className="hidden h-11 px-5 sm:inline-flex">
+          <ButtonLink href="/contact" className="hidden h-11 px-5 sm:inline-flex nav:max-xl:px-4">
             Get a Consultation
           </ButtonLink>
           <button
@@ -146,7 +146,7 @@ function DesktopItem({
   onClose: () => void;
 }) {
   const linkClass = cn(
-    "relative inline-flex h-full items-center gap-1 px-2.5 xl:px-3 font-display text-[0.9375rem] font-semibold transition-colors 2xl:px-3.5 2xl:text-base",
+    "relative inline-flex h-full items-center gap-1 whitespace-nowrap px-2 xl:px-3 font-display text-[0.9375rem] font-semibold transition-colors 2xl:px-3.5 2xl:text-base",
     active || open ? "text-navy" : "text-ink-muted hover:text-navy",
   );
   const indicator = (

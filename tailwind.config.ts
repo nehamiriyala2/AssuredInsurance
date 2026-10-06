@@ -23,15 +23,16 @@ const config: Config = {
     /*
      * Breakpoints, declared as one ordered list (Tailwind emits media queries in this
      * order, so a later, wider breakpoint always wins over a narrower one).
-     * `nav` is the width at which the full desktop navigation fits — logo, six links
-     * and the consultation button — so the header switches from the hamburger there.
+     * `nav` (1100px) is the narrowest width at which the full desktop navigation fits
+     * on one line — logo, six links and the consultation button (measured: 1,046px of
+     * content at the 1100–1279px spacing). Below it the header uses the hamburger.
      * Keep it in sync with the `--header-h` media query in styles/globals.css.
      */
     screens: {
       sm: "640px",
       md: "768px",
       lg: "1024px",
-      nav: "1200px",
+      nav: "1100px",
       xl: "1280px",
       "2xl": "1536px",
     },
