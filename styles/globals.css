@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   Brand tokens — the single source of colour for the whole site.
+   Sampled from the supplied logo (public/brand/logo-original.png).
+   Values are space-separated RGB so Tailwind opacity modifiers work.
+   Do not add colours here that are not in the logo.
+   ========================================================================== */
+:root {
+  /* Brand */
+  --brand-navy: 14 21 101; /* #0E1565 — logo letterforms */
+  --brand-green: 98 156 39; /* #629C27 — logo "i" square & emblem */
+  --brand-green-ink: 74 122 30; /* #4A7A1E — logo green deepened for AA text/button contrast (5.1:1 on white) */
+
+  /* Neutrals — from the logo's grey extrusion (#D9D9DB) */
+  --white: 255 255 255;
+  --background: 255 255 255;
+  --surface: 246 246 247; /* #F6F6F7 */
+  --surface-strong: 237 237 239; /* #EDEDEF */
+  --border: 228 228 231; /* #E4E4E7 */
+  --border-strong: 217 217 219; /* #D9D9DB — logo extrusion grey */
+  --text-primary: 23 25 31; /* #17191F */
+  --text-secondary: 82 86 94; /* #52565E */
+  --text-tertiary: 108 111 119; /* #6C6F77 */
+
+  /* Functional — form validation messages only */
+  --danger: 180 35 24; /* #B42318 */
+
+  /* Layout */
+  --header-h: 64px;
+  --subnav-h: 0px; /* set by <SectionNav> while it is mounted */
+  /* Gutters: 16px @375 → 31px @768 → 41px @1024 → 58px @1440 → 64px max */
+  --gutter: clamp(1rem, 4vw, 4rem);
+  --container-max: 1536px; /* ≈1408px of content on large screens */
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --header-h: 76px;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + var(--subnav-h) + 20px);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-body text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-ink;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-green/25 text-navy;
+  }
+
+  :focus-visible {
+    @apply rounded-[6px] outline-none ring-2 ring-green ring-offset-2 ring-offset-canvas;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Wide container: uses the viewport on large screens. */
+  .container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  /* Vertical rhythm: 48px mobile → 64px tablet → 88px desktop */
+  .section {
+    @apply py-12 md:py-16 xl:py-[5.5rem];
+  }
+  .section-sm {
+    @apply py-10 md:py-12 xl:py-16;
+  }
+
+  /* Small green square — the dot of the "i" in the logo. Used as the one recurring brand mark. */
+  .brand-square {
+    @apply inline-block h-2 w-2 shrink-0 bg-green;
+  }
+
+  /* Short label above a heading. Use sparingly — not on every section. */
+  .kicker {
+    @apply inline-flex items-center gap-2.5 font-display text-sm font-bold uppercase tracking-[0.14em] text-green-ink;
+  }
+
+  /* Icon tile — neutral surface, navy glyph. */
+  .icon-tile {
+    @apply flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-surface text-navy;
+  }
+
+  .prose-legal h2 {
+    @apply mb-4 mt-12 scroll-mt-28 font-display text-display-sm first:mt-0;
+  }
+  .prose-legal p,
+  .prose-legal li {
+    @apply text-body text-ink-muted;
+  }
+  .prose-legal p {
+    @apply mb-4;
+  }
+  .prose-legal ul {
+    @apply mb-4 list-disc space-y-2 pl-5 marker:text-green;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Reveal-on-scroll (see components/ui/Reveal.tsx) — deliberately subtle. */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1), transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

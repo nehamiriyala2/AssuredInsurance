@@ -1,0 +1,24 @@
+# dependencies
+node_modules
+
+# Next.js build output
+.next
+.next-build
+out
+next-env.d.ts
+*.tsbuildinfo
+
+# environment files — never commit (covers .env, .env.local, .env.production, …)
+.env
+.env.*
+!.env.example
+
+# deployment / tooling
+.vercel
+
+# logs & OS files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
