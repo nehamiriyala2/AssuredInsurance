@@ -1,4 +1,5 @@
 import { buildMetadata } from "@/lib/seo";
+import { faqsHref } from "@/lib/site";
 import { claimsSteps } from "@/data/home";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/Button";
@@ -229,7 +230,7 @@ export default function ClaimsPage() {
         title="We're Here to Help You Through It"
         description="Tell us what has happened and which policy it relates to. We'll help you work out the next steps and what to have ready."
         primary={{ label: "Request Claims Assistance", href: assistHref }}
-        secondary={{ label: "Read FAQs", href: "/resources#faqs" }}
+        secondary={faqsHref ? { label: "Read FAQs", href: faqsHref } : undefined}
       />
     </>
   );

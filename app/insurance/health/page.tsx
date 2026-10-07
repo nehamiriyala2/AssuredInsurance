@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
+import { faqsHref } from "@/lib/site";
 import { getInsuranceCategory } from "@/data/insurance";
 import type { FAQ, ProcessStep } from "@/lib/types";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -309,7 +310,9 @@ export default function HealthInsurancePage() {
         <div className="container grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-4">
             <SectionHeading title="Health Insurance FAQs" />
-            <p className="mt-4 text-copy text-ink-muted">More questions? Browse all our <Link className="font-semibold text-navy underline underline-offset-2 hover:text-green-ink" href="/resources#faqs">FAQs</Link>.</p>
+            {faqsHref && (
+              <p className="mt-4 text-copy text-ink-muted">More questions? Browse all our <Link className="font-semibold text-navy underline underline-offset-2 hover:text-green-ink" href={faqsHref}>FAQs</Link>.</p>
+            )}
           </div>
           <div className="lg:col-span-8">
             <FAQAccordion items={faqs} />

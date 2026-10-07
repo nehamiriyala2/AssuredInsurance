@@ -16,6 +16,7 @@ import { Steps } from "@/components/sections/Steps";
 import { ClientStories } from "@/components/sections/ClientStories";
 import { FAQTabs } from "@/components/sections/FAQTabs";
 import { ClosingCTA } from "@/components/sections/ClosingCTA";
+import { OurTeam } from "@/components/sections/Team";
 
 export const metadata = buildMetadata({
   title: "Insurance, Financial Planning & Loan Services",
@@ -111,6 +112,9 @@ export default function HomePage() {
           </nav>
         </div>
       </section>
+
+      {/* Our Team — directly below the hero's four service cards (data/team.ts) */}
+      <OurTeam />
 
       {/* Insurance — bento: two photo tiles, four compact tiles, slim "other" row */}
       <section className="section bg-surface">

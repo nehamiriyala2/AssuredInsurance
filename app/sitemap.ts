@@ -4,7 +4,7 @@ import { insurancePages } from "@/data/insurance";
 import { loanPages } from "@/data/loans";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["/", "/insurance", "/financial-services", "/loans", "/about", "/contact", "/resources", "/claims", "/privacy-policy", "/terms"];
+  const staticRoutes = ["/", "/insurance", "/financial-services", "/loans", "/about", "/contact", ...(site.features.resources ? ["/resources"] : []), "/claims", "/privacy-policy", "/terms"];
   const routes = [
     ...staticRoutes,
     ...insurancePages.map((c) => `/insurance/${c.slug}`),

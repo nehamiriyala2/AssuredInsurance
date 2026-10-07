@@ -62,6 +62,8 @@ Nothing has been invented. All of the following must be supplied by the client:
 | Genuine testimonials | `data/testimonials.ts` (section stays hidden while empty) |
 | Form delivery | set env `CONTACT_WEBHOOK_URL` (see `app/api/contact/route.ts`). In production the form refuses submissions until this is set. |
 | Company history, registrations, team | `app/about/page.tsx` (TODO marked) |
+| Home page Our Team (2 members; member 2 is the Retd. SBI Chief Manager) — names, designations, profiles (hidden until set) | `data/team.ts` |
+| Team portraits — currently licensed stock stand-ins; replace before publishing names | `public/images/team/` (4:5, ≥1600×2000 px, same file names) |
 | Legal review + effective dates | `app/privacy-policy`, `app/terms`, footer disclaimer |
 | Published articles | `data/resources.ts` (add `href`. Cards show "Coming soon" until then) |
 

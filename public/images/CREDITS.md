@@ -27,3 +27,14 @@ Replace with the client's own photography whenever available.
 | general/advisor-meeting.webp | Vitaly Gariev | https://unsplash.com/photos/M5k978V3qBc | a man and woman sitting at a table with a laptop |
 | insurance/motor-car-city.webp | Zoshua Colah | https://unsplash.com/photos/T0T3vjiqHtY | Car on a city expressway |
 | insurance/motor-commercial.webp | Zoshua Colah | https://unsplash.com/photos/GwfFiDZsBws | Goods trucks on a hill road |
+
+## Team portraits — stand-ins
+
+Stock portraits used in the Home page's Our Team section until the team's own photographs are supplied
+(see `data/team.ts`). Cropped to 4:5 WebP — 1600×2000 (team-member-2: 1280×1600, re-framed to match team-member-1's headroom).
+Photographer taken from the file's embedded metadata where present.
+
+| File | Photographer | Source | Description |
+|---|---|---|---|
+| team/team-member-1.webp | — | https://images.unsplash.com/photo-1625504615927-c14f4f309b63 | man in a grey suit jacket, studio portrait |
+| team/team-member-2.webp | Foto Sushi | https://images.unsplash.com/photo-1645830166230-187caf791b90 | man in a blue blazer, studio portrait |

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { footerNav } from "@/data/navigation";
+import { cn } from "@/lib/cn";
 import { placeholderLabel, site } from "@/lib/site";
 import { Icon } from "@/components/ui/Icon";
 import { Logo } from "@/components/ui/Logo";
@@ -18,7 +19,8 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 pt-10 sm:grid-cols-3 lg:grid-cols-6">
+        {/* One column per link group + Contact (the Resources group is optional — see lib/site.ts). */}
+        <div className={cn("grid grid-cols-2 gap-x-6 gap-y-10 pt-10 sm:grid-cols-3", footerNav.length > 4 ? "lg:grid-cols-6" : "lg:grid-cols-5")}>
           {footerNav.map((col) => (
             <div key={col.title}>
               <h2 className="font-display text-sm font-bold uppercase tracking-[0.12em] text-white">{col.title}</h2>

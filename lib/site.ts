@@ -32,8 +32,17 @@ export const site = {
   features: {
     /** Show the Client Stories section once genuine testimonials are added to data/testimonials.ts */
     clientStories: true,
+    /**
+     * Resources (guides & FAQs hub — app/resources/page.tsx). Disabled: hidden from the
+     * navigation, footer and sitemap. The route and data/resources.ts are kept intact;
+     * set to `true` to restore its nav item, footer column, sitemap entry and FAQ links.
+     */
+    resources: false,
   },
 } as const;
+
+/** "All FAQs" link target on service pages — only while the Resources hub is enabled. */
+export const faqsHref: string | null = site.features.resources ? "/resources#faqs" : null;
 
 export const placeholderLabel = {
   phone: "Phone number to be added",

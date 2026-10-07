@@ -1,4 +1,5 @@
 import type { IconName } from "@/components/ui/Icon";
+import { site } from "@/lib/site";
 import { financialServices } from "./financial";
 import { insuranceCategories, insuranceHref } from "./insurance";
 import { loanCategories, loanHref } from "./loans";
@@ -38,7 +39,8 @@ export const mainNav: NavItem[] = [
     children: loanCategories.map((l) => ({ label: l.title, href: loanHref(l), icon: l.icon })),
   },
   { label: "About Us", href: "/about" },
-  { label: "Resources", href: "/resources" },
+  // Hidden while site.features.resources is false (lib/site.ts).
+  ...(site.features.resources ? [{ label: "Resources", href: "/resources" }] : []),
   { label: "Contact", href: "/contact" },
 ];
 
@@ -82,11 +84,16 @@ export const footerNav = [
       { label: "Terms & Conditions", href: "/terms" },
     ],
   },
-  {
-    title: "Resources",
-    links: [
-      { label: "Guides", href: "/resources#guides" },
-      { label: "FAQs", href: "/resources#faqs" },
-    ],
-  },
+  // Hidden while site.features.resources is false (lib/site.ts).
+  ...(site.features.resources
+    ? [
+        {
+          title: "Resources",
+          links: [
+            { label: "Guides", href: "/resources#guides" },
+            { label: "FAQs", href: "/resources#faqs" },
+          ],
+        },
+      ]
+    : []),
 ];
